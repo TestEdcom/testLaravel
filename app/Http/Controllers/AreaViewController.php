@@ -296,7 +296,7 @@ class AreaViewController extends Controller
 
     $district_code_latest = DB::table('cities_tbl')->max('city_code');
     $code_number = explode('CITY', $district_code_latest);
-    ($code_number[0]!=""? $code_number = $code_number[1]: $code_number =0);  
+    ($code_number[1]!=""? $code_number = $code_number[1]: $code_number =0);  
     $pr_id = sprintf("%06d", $code_number+1);
     $next_city_code = 'CITY'.$pr_id;
     $result_district = DB::table('district_tbl')->get(); 
