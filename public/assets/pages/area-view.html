@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+      <link href="../bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="../bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Fancybox CSS -->
+    <link href="../dist/css/jquery.fancybox.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-purple navbar-static-top" role="navigation" style="margin-bottom: 0">
+             <div class="navbar-header-upper"  >
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><h4>EdCom<sup>ERP</sup></h4></a>
+                </div>
+                <!-- /.navbar-header -->
+              </div>
+            <!-- /.navbar-top-links -->  
+            <ul class="nav navbar-top-links navbar-right">
+                
+                 
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i> Master Data <i class="fa fa-caret-down"></i>
+                    </a>
+                   <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="suppliers-view.html">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Suppliers
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li> 
+                        <li>
+                            <a href="salesperson-view.html">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i>  Sales Persons
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="tax-view.html">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i>  Tax Rates
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="brand-view.html">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Brands
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="channel-view.html">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Channels (Sale Type)
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="area-view.html">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Areas / Routes
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="payment-method-view.html">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Payment Methods
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                         <li>
+                            <a href="merchandiser-view.html">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Merchandiser
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> User Accounts
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+           
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li> 
+                        <li>
+                            <a href="tables.html"><i class="fa fa-apple"></i> Products<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                               <li>
+                                    <a href="product-add.html">Add Products</a>
+                                </li>
+                                <li>
+                                    <a href="product-category.html">Product Categories</a>
+                                </li>
+                                 <li>
+                                    <a href="product-sizes.html">Product Sizes</a>
+                                </li>
+                                 <li>
+                                    <a href="product-prices.html">Product Prices</a>
+                                </li>
+                                <li>
+                                    <a href="product-view.html">View Products</a>
+                                </li>
+                                 
+                            </ul>
+                        </li> 
+                        <li>
+                            <a href="tables.html"><i class="fa fa-tasks"></i> Inventory<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                               <li>
+                                    <a href="inventory-view.html">View Inventory</a>
+                                </li>
+                                <li>
+                                    <a href="inventory-add-item.html">New Item Add</a>
+                                </li>
+                                <li>
+                                    <a href="inventory-goods-receive.html">Goods Receive</a>
+                                </li>
+                                <li>
+                                    <a href="inventory-goods-issue.html">Goods Issue</a>
+                                </li>
+                                 
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="tables.html"><i class="fa fa-users"></i> Clients<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                               <li>
+                                    <a href="client-add.html">Add Clients</a>
+                                </li>
+                                <li>
+                                    <a href="client-view.html">View Clients</a>
+                                </li>
+                                 
+                            </ul>
+                        </li> 
+                        <li>
+                            <a href="tables.html"><i class="fa fa-file-o"></i> Quotes<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                               <li>
+                                    <a href="quotes-add.html">Add Quotes</a>
+                                </li>
+                                <li>
+                                    <a href="quotes-back-orders.html">Back Orders</a>
+                                </li>
+                                <li>
+                                    <a href="quotes-view.html">View Quotes</a>
+                                </li>
+                                 
+                            </ul>
+                        </li> 
+                        <li>
+                            <a href="tables.html"><i class="fa fa-floppy-o"></i> Invoices<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="invoice-add.html">Add Invoice</a>
+                                </li>
+                                <li>
+                                    <a href="invoice-view.html">View Invoice</a>
+                                </li>
+                                <li>
+                                    <a href="invoice-return.html">Invoices Return</a>
+                                </li>
+                                 
+                            </ul>
+                        </li> 
+                        <li>
+                            <a href="tables.html"><i class="fa fa-dollar"></i> Payments<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="payment-add.html">Add Payments</a>
+                                </li>
+                                <li>
+                                    <a href="payment-view.html">View Payments</a>
+                                </li>
+                                 
+                            </ul>
+                        </li>  
+                         <li>
+                            <a href="tables.html"><i class="fa fa-file"></i> Reports<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="tax.html">Clients Statements</a>
+                                </li>
+                                <li>
+                                    <a href="morris.html">Item Sales</a>
+                                </li>
+                                <li>
+                                    <a href="morris.html">Payments Collected</a>
+                                </li>
+                                <li>
+                                    <a href="morris.html">Revenue By Client</a>
+                                </li>
+                                <li>
+                                    <a href="morris.html">Tax Sumery</a>
+                                </li> 
+                            </ul>
+                        </li>  
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="tab-content">
+                <div class="row">
+                <div class="col-lg-12">
+
+                    <h1 class="page-header">Area / Route</h1> 
+                </div>
+
+                 </div>
+                  <ul class="nav nav-tabs">
+                                <li class="active"><a data-toggle="tab" href="#area" aria-expanded="true">Area</a>
+                                </li>
+                                <li class=""><a data-toggle="tab" href="#province" aria-expanded="false">Provinces</a>
+                                </li>
+                                <li class=""><a data-toggle="tab" href="#districts" aria-expanded="false">Districts</a>
+                                </li>
+                                <li class=""><a data-toggle="tab" href="#cities" aria-expanded="false">Cities</a>
+                                </li>
+                            </ul>
+            <!-- /.row -->
+            <div id="area" class="tab-pane fade active in">
+            <div class="row clr_row">
+                <div class="col-lg-12">
+                    <div class="row page-header">
+                    <div class="col-lg-12"> 
+                       <a class="btn btn-primary" href="404.html">Add Area</a>
+
+
+                    </div>
+                <!-- /.col-lg-12 -->
+                </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            All Areas
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="dataTable_wrapper">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>Area Name</th>
+                                            <th>Area Code</th>
+                                            <th>Area District</th> 
+                                            <th>Area City</th> 
+                                            <th>Area Sales Persons</th> 
+                                            <th>Action</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="odd gradeX">
+                                            <td>Maharagama South</td>
+                                            <td>AR20001</td>
+                                            <td>Colombo</td> 
+                                            <td>Maharagama / Pannipitiya / Kottawa </td>
+                                            <td>John / Clark </td> 
+                                            <td class="center"> 
+                                            <a href="" class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
+                                            <a href="" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>
+                                            </td>
+                                        </tr>
+                                        <tr class="odd gradeX">
+                                            <td>Gampaha North</td>
+                                            <td>AR20023</td>
+                                            <td>Gampaha</td> 
+                                            <td>Gampaha / Ja-Ela / Kadana </td>
+                                            <td>John / Clark </td> 
+                                            <td class="center"> 
+                                            <a href="" class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
+                                            <a href="" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>
+                                            </td>
+                                        </tr>
+                                        <tr class="even gradeC">
+                                           <td>Kaluthra North</td>
+                                            <td>AR20034</td>
+                                            <td>Kaluthra</td> 
+                                            <td>Kaluthra / Mathugama  </td>
+                                            <td>John / Clark </td> 
+                                            <td class="center"> 
+                                            <a href="" class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
+                                            <a href="" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>
+                                            </td>
+                                        </tr>
+                                        <tr class="odd gradeA">
+                                           <td>Galle</td>
+                                            <td>AR20045</td>
+                                            <td>Galle</td> 
+                                            <td>Galle / Koggala </td>
+                                            <td>John / Clark </td> 
+                                            <td class="center"> 
+                                            <a href="" class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
+                                            <a href="" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>
+                                            </td>
+                                        </tr>
+                                        <tr class="even gradeA">
+                                            <td>Matara South</td>
+                                            <td>AR20064</td>
+                                            <td>Matara</td> 
+                                            <td>Matara  </td>
+                                            <td>John / Clark </td> 
+                                            <td class="center"> 
+                                            <a href="" class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
+                                            <a href="" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>
+                                            </td>
+                                        </tr>
+                                        
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                           
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+        </div>
+            <!-- /.area -->
+        <div id="province" class="tab-pane fade "> districts   
+             <div class="row clr_row">
+                <div class="col-lg-12">
+                    <div class="row page-header">
+                    <div class="col-lg-12"> 
+                       <a class="btn btn-primary" href="404.html">Add Province</a>
+
+
+                    </div>
+                <!-- /.col-lg-12 -->
+                </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            All Provinces
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="dataTable_wrapper">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example2">
+                                    <thead>
+                                        <tr>
+                                            <th>Province Name</th>
+                                            <th>Province Code</th> 
+                                            <th>Action</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="odd gradeX">
+                                            <td>Western Province</td>
+                                            <td>PROV01</td> 
+                                           <td class="center"> 
+                                            <a href="" class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
+                                            <a href="" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>
+                                            </td>
+                                        </tr>
+                                        <tr class="odd gradeX">
+                                            <td>Sourthern Province</td>
+                                            <td>PROV02</td>  
+                                            <td class="center"> 
+                                            <a href="" class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
+                                            <a href="" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>
+                                            </td>
+                                        </tr>
+                                        <tr class="even gradeC">
+                                            <td>Eastern Province</td>
+                                            <td>PROV02</td> 
+                                            <td class="center"> 
+                                            <a href="" class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
+                                            <a href="" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>
+                                            </td>
+                                        </tr>
+                                        <tr class="odd gradeA">
+                                            <td>North Central Province</td>
+                                            <td>PROV03</td>  
+                                            <td class="center"> 
+                                            <a href="" class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
+                                            <a href="" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>
+                                            </td>
+                                        </tr>
+                                        <tr class="even gradeA">
+                                            <td>Uva Province</td>
+                                            <td>PROV03</td>   
+                                            <td class="center"> 
+                                            <a href="" class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
+                                            <a href="" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>
+                                            </td>
+                                        </tr>
+                                        
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                           
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+        </div>    
+            <!-- /.province -->
+
+             <div id="districts" class="tab-pane fade ">    
+             <div class="row clr_row">
+                <div class="col-lg-12">
+                    <div class="row page-header">
+                    <div class="col-lg-12"> 
+                       <a class="btn btn-primary" href="404.html">Add District</a>
+
+
+                    </div>
+                <!-- /.col-lg-12 -->
+                </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            All Districts
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="dataTable_wrapper">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example3">
+                                    <thead>
+                                        <tr>
+                                            <th>District Name</th>
+                                            <th>District Code</th>
+                                            <th>Province Name</th> 
+                                            <th>Action</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="odd gradeX">
+                                            <td>COLOMBO</td>
+                                            <td>PROV01</td> 
+                                            <td>Western Province</td> 
+                                            <td class="center"> 
+                                            <a href="" class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
+                                            <a href="" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>
+                                            </td>
+                                        </tr>
+                                        <tr class="odd gradeX">
+                                            <td>GAMPAHA</td>
+                                            <td>PROV02</td> 
+                                            <td>Sourthern Province </td>  
+                                            <td class="center"> 
+                                            <a href="" class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
+                                            <a href="" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>
+                                            </td>
+                                        </tr>
+                                        <tr class="even gradeC">
+                                            <td>KALUTHARA</td>
+                                            <td>PROV02</td> 
+                                            <td>Eastern Province</td> 
+                                            <td class="center"> 
+                                            <a href="" class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
+                                            <a href="" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>
+                                            </td>
+                                        </tr>
+                                        <tr class="odd gradeA">
+                                            <td>GALLE </td>
+                                            <td>PROV03</td>  
+                                            <td>GALLE </td>
+                                            <td class="center"> 
+                                            <a href="" class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
+                                            <a href="" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>
+                                            </td>
+                                        </tr>
+                                        <tr class="even gradeA">
+                                            <td>MATARA </td>
+                                            <td>PROV03</td> 
+                                            <td> Uva Province</td> 
+                                            <td class="center"> 
+                                            <a href="" class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
+                                            <a href="" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>
+                                            </td>
+                                        </tr>
+                                        
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                                   
+                                </div>
+                                <!-- /.panel-body -->
+                            </div>
+                            <!-- /.panel -->
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+                </div>    
+                    <!-- /.districts -->
+
+                <div id="cities" class="tab-pane fade ">    
+             <div class="row clr_row">
+                <div class="col-lg-12">
+                    <div class="row page-header">
+                    <div class="col-lg-12"> 
+                       <a class="btn btn-primary" href="404.html">Add City</a>
+
+
+                    </div>
+                <!-- /.col-lg-12 -->
+                </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            All Cities
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="dataTable_wrapper">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example4">
+                                    <thead>
+                                        <tr>
+                                            <th>City Name</th>
+                                            <th>City Code</th>
+                                            <th>District Name</th>
+                                            <th>Province Name</th> 
+                                            <th>Action</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="odd gradeX">
+                                            <td>Maharagama</td>
+                                            <td>CT00001</td> 
+                                            <td>COLOMBO</td> 
+                                            <td>Western Province</td> 
+                                            <td class="center">Edit | Delete</td>
+                                        </tr>
+                                        <tr class="odd gradeX">
+                                            <td>GAMPAHA</td>
+                                            <td>CT000012</td> 
+                                            <td>GAMPAHA</td> 
+                                            <td>Sourthern Province </td>  
+                                            <td class="center">Edit | Delete</td>
+                                        </tr>
+                                        <tr class="even gradeC">
+                                            <td>KALUTHARA</td>
+                                            <td>CT00012</td> 
+                                            <td>KALUTHARA</td> 
+                                            <td>Eastern Province</td> 
+                                            <td class="center">Edit | Delete</td>
+                                        </tr>
+                                        <tr class="odd gradeA">
+                                            <td>GALLE </td>
+                                            <td>CT00012</td>  
+                                            <td>GALLE </td>
+                                            <td>Western Province </td>
+                                            <td class="center">Edit | Delete</td>
+                                        </tr>
+                                        <tr class="even gradeA">
+                                            <td>MATARA </td>
+                                            <td>CT00014</td> 
+                                            <td>MATARA</td> 
+                                            <td> Uva Province</td> 
+                                            <td class="center">Edit | Delete</td>
+                                        </tr>
+                                        
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                                   
+                                </div>
+                                <!-- /.panel-body -->
+                            </div>
+                            <!-- /.panel -->
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+                </div>    
+                    <!-- /.districts -->    
+
+                 </div> <!-- /.tab content -->
+                
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+ 
+
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- DataTables JavaScript -->
+    <script src="../bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    
+    <script src="../bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+
+<!-- Fancybox JS -->
+
+    <script src="../dist/js/jquery.fancybox.js"></script>
+
+    <script src="../dist/js/jquery.fancybox.pack.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+
+    <script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+                responsive: true,
+                lengthMenu: [5, 10, 25, 50, 100],
+                pageLength: 5,
+                "order": []
+
+        });
+        $('#dataTables-example2').DataTable({
+                responsive: true,
+                lengthMenu: [5, 10, 25, 50, 100],
+                pageLength: 5,
+                "order": []
+
+        });
+        $('#dataTables-example3').DataTable({
+                responsive: true,
+                lengthMenu: [5, 10, 25, 50, 100],
+                pageLength: 5,
+                "order": []
+
+        });
+        $('#dataTables-example4').DataTable({
+                responsive: true,
+                lengthMenu: [5, 10, 25, 50, 100],
+                pageLength: 5,
+                "order": []
+
+        });
+
+        $(".various").fancybox({
+            maxWidth    : 1000,
+            fitToView   : false,
+            width       : '70%',
+            height      : '45%',
+            autoSize    : false,
+            closeClick  : false,
+            openEffect  : 'none',
+            closeEffect : 'none'
+        });
+    });
+    </script>
+
+</body>
+
+</html>
