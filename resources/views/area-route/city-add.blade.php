@@ -8,13 +8,13 @@
       <div id="page-wrapper">
             <div class="row clr_row sub_menu_bar">
                 <div class="col-lg-12">
-                        <a href="/area-view#cities" class="btn btn-purple">Back To District View</a>
+                        <a href="/area-view#cities" class="btn btn-purple">Back To City View</a>
                 </div>
         </div>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Add District</h1> 
+                        <h1 class="page-header">Add City</h1> 
                     </div>
 
                  </div>
@@ -52,21 +52,7 @@
                                         <div class="form-group">
                                             <label>City Code</label>
                                             <input class="form-control" name="city_code" disabled="disabled"  value="<?php  echo $next_city_code; ?>">
-                                        </div> 
-                                        <div class="form-group">
-                                            <label>Province Name</label>
-                                            <select  class="form-control"  name="province_code" class="province_code">
-                                                 <option value="">Select Province</option>
-                                                 <?php foreach ($result_province as $province) {
-                                                  $province_name = trim($province->province_name);
-                                                  $province_code = trim($province->province_code);
-                                                  ?>
-                                                  <option value="<?php echo $province_code; ?>"><?php echo $province_name; ?></option>
-                                                  <?php
-                                                 }
-                                                 ?>
-                                            </select>
-                                        </div>
+                                        </div>  
                                         <div class="form-group">
                                             <label>District Name</label>
                                             <select  class="form-control"  name="district_code" >

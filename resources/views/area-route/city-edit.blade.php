@@ -61,21 +61,7 @@
                                                  }
                                                  ?>
                                             </select>
-                                        </div> 
-                                        <div class="form-group">
-                                            <label>Province Name</label>
-                                            <select  class="form-control"  name="province_code" >
-                                                 <option value="">Select Province</option>
-                                                 <?php foreach ($result_province as $province) {
-                                                  $province_name = trim($province->province_name);
-                                                  $province_code = trim($province->province_code);
-                                                  ?>
-                                                  <option value="<?php echo $province_code; ?>"  <?php if(trim($row->province_code) == trim($province_code)) { echo "selected='selected'"; } ?>  ><?php echo $province_name; ?></option>
-                                                  <?php
-                                                 }
-                                                 ?>
-                                            </select>
-                                        </div> 
+                                        </div>  
                                          
                                         
                                 </div>

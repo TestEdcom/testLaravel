@@ -353,9 +353,9 @@
                                             ?>
                                                 <tr class="odd gradeX">
                                                     <td><?php echo $cities_name; ?></td>
-                                                    <td><?php echo $cities_code; ?></td> 
-                                                    <td><?php echo $cities_province_name; ?></td> 
+                                                    <td><?php echo $cities_code; ?></td>  
                                                     <td><?php echo $cities_districts_name; ?></td> 
+                                                    <td><?php echo $cities_province_name; ?></td> 
                                                     <td class="center"> 
                                                     <a href="<?php echo '/edit-city/'.$cities_id; ?>" class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
                                                     <a href="<?php echo '/delete-city/'.$cities_id; ?>" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>

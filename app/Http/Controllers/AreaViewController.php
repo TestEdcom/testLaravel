@@ -26,7 +26,7 @@ class AreaViewController extends Controller
     $result_cities = DB::table('cities_tbl')
     ->select('cities_tbl.id','cities_tbl.city_name','cities_tbl.city_code','cities_tbl.districts_code','cities_tbl.province_code','provinces_tbl.province_name','district_tbl.districts_name')
       ->join('district_tbl', 'cities_tbl.districts_code', '=', 'district_tbl.districts_code')
-      ->join('provinces_tbl', 'cities_tbl.province_code', '=', 'provinces_tbl.province_code')
+      ->join('provinces_tbl', 'district_tbl.province_code', '=', 'provinces_tbl.province_code')
       ->orderBy('id','desc')
       ->get();
 
@@ -300,9 +300,9 @@ class AreaViewController extends Controller
     $pr_id = sprintf("%06d", $code_number+1);
     $next_city_code = 'CITY'.$pr_id;
     $result_district = DB::table('district_tbl')->get(); 
-    $result_province = DB::table('provinces_tbl')->get(); 
+    // $result_province = DB::table('provinces_tbl')->get(); 
 
-    return view('area-route.city-add')->with('next_city_code',$next_city_code)->with('result_province',$result_province)->with('result_district',$result_district);
+    return view('area-route.city-add')->with('next_city_code',$next_city_code)->with('result_district',$result_district);
   }
 
   public function city_save(Request $request){
@@ -311,8 +311,7 @@ class AreaViewController extends Controller
     [
       'city_name' => 'required', 
       'city_name' => 'unique:cities_tbl,city_name' ,  // object if it exists:
-      'district_code' => 'required',   // object if it exists:
-      'province_code' => 'required'   // object if it exists:
+      'district_code' => 'required',   // object if it exists: 
     ]);
 
     if($validation->fails()){
@@ -323,8 +322,7 @@ class AreaViewController extends Controller
           $data = array (
           'city_name'=> trim($post['city_name']), 
           'city_code'=> trim($post['city_code']),
-          'districts_code'=> trim($post['district_code']),
-          'province_code'=> trim($post['province_code']),
+          'districts_code'=> trim($post['district_code']), 
             );
 
           $i = DB::table('cities_tbl')->insert($data);
@@ -343,7 +341,6 @@ class AreaViewController extends Controller
         [  
           'city_name'=>'required',  
           'districts_code' => 'required',   // object if it exists:
-          'province_code' => 'required'   // object if it exists:
         ]);
 
       if($v->fails()){
@@ -353,7 +350,6 @@ class AreaViewController extends Controller
         $data = array (
         'city_name'=> trim($post['city_name']),  
         'districts_code'=> trim($post['districts_code']), 
-        'province_code'=> trim($post['province_code']), 
           );
 
         $i = DB::table('cities_tbl')->where('id',$post['id'])->update($data);
@@ -378,8 +374,7 @@ class AreaViewController extends Controller
     public function edit_city_form($id){
 
       $row = DB::table('cities_tbl')
-      ->select('cities_tbl.id','cities_tbl.city_name','cities_tbl.city_code','cities_tbl.districts_code','cities_tbl.province_code','district_tbl.districts_name','provinces_tbl.province_name')
-      ->join('provinces_tbl', 'provinces_tbl.province_code', '=', 'cities_tbl.province_code')
+      ->select('cities_tbl.id','cities_tbl.city_name','cities_tbl.city_code','cities_tbl.districts_code','district_tbl.districts_name')
       ->join('district_tbl', 'district_tbl.districts_code', '=', 'cities_tbl.districts_code')
       ->where('cities_tbl.id',$id)->first();
       
