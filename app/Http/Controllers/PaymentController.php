@@ -8,14 +8,13 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
+use App\Payment_model;
 
 class PaymentController extends Controller
 {
 
   public function viewPayment(){
-  	$result = DB::table('payment_method')
-             ->where('trash', '!=', '1')   
-             ->get();    
+  	$result = Payment_model::get_all_payment_methods();    
   	return view('payment.view')->with('data',$result);
   } 
 
@@ -24,10 +23,7 @@ class PaymentController extends Controller
   }
 
    public function payment_edit($id){
-    	$row = DB::table('payment_method')
-                ->where('id',$id)
-                ->where('trash', '!=', '1')
-                ->first();
+    	$row = Payment_model::get_payment_method_details_by_id($id);
     	return view('payment.edit')->with('row',$row);
     }
     
@@ -43,11 +39,10 @@ class PaymentController extends Controller
 		return redirect()->back()->withErrors($validation->errors());
 	}else{
     		$data = array (
-				'payment_name'=> $post['payment_name'], 
-				'created_at'  => strtotime(date('Y-m-d H:i:s')), 
+			'payment_name'=> $post['payment_name'], 
+			'created_at'  => strtotime(date('Y-m-d H:i:s')), 
     			);
-
-    		$i = DB::table('payment_method')->insert($data);
+    		$i = Payment_model::insert_payment_method($data);
     		if($i > 0){
     			\ Session::flash('message','Record Have been saved succesfully!');
     			return redirect('payment-view');
@@ -66,11 +61,8 @@ class PaymentController extends Controller
     	if($v->fails()){
     		return redirect()->back()->withErrors($v->errors());
     	}else{            
-                $user_favorites = DB::table('payment_method')
-                    ->where('id', '!=', $post['id'])
-                    ->where('payment_name', '=', $post['payment_name'])
-                    ->first();
-
+                $user_favorites = Payment_model::check_payment_method_is_exist($post['id'], $post['payment_name']);
+                 
             if (!is_null($user_favorites)) {
                return redirect()->back()->withErrors('The payment name has already been taken.');
             } else {
@@ -79,7 +71,7 @@ class PaymentController extends Controller
                             'updated_at'  => strtotime(date('Y-m-d H:i:s')), 
     			);
 
-    		$i = DB::table('payment_method')->where('id',$post['id'])->update($data);
+    		$i = Payment_model::update_payment_method($post['id'], $data);
     		if($i > 0){
     			\ Session::flash('message','Record Have been updated succesfully!');
     			return redirect('payment-view');
@@ -90,7 +82,7 @@ class PaymentController extends Controller
 
   public function delete($id){
 
-      $i = DB::table('payment_method')->where('id',$id)->update(array('trash'=>'1'));
+      $i = Payment_model::delete_payment_method($id);
     		if($i > 0){
 			\ Session::flash('message','Record Have been Deleted succesfully!');
 			return redirect('payment-view');

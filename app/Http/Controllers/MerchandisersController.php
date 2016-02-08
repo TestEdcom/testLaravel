@@ -8,20 +8,18 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
+use App\Merchandisers_model;
 
 class MerchandisersController extends Controller
 {
 
   public function view(){
-  	$result = DB::table('merchandiser')
-             ->where('trash', '!=', '1')   
-             ->get();    
+  	$result = Merchandisers_model::get_all_merchandisers();    
   	return view('merchandisers.view')->with('data',$result);
   } 
 
   public function add(){
-      $result = DB::table('merchandiser')
-              ->max('id');
+      $result = Merchandisers_model::get_merchandiser_max_id();
        if(is_null($result)){
            $result='001';
        } else{
@@ -32,10 +30,7 @@ class MerchandisersController extends Controller
   }
 
    public function edit($id){
-    	$row = DB::table('merchandiser')
-                ->where('id',$id)
-                ->where('trash', '!=', '1')
-                ->first();
+    	$row = Merchandisers_model::get_merchandiser_details_by_id($id);
     	return view('merchandisers.edit')->with('row',$row);
     }
     
@@ -52,8 +47,7 @@ class MerchandisersController extends Controller
 		return redirect()->back()->withErrors($validation->errors());
 	}else{
             
-            $result = DB::table('merchandiser')
-              ->max('id');
+            $result =Merchandisers_model::get_merchandiser_max_id();
        if(is_null($result)){
            $code='001';
        } else{
@@ -68,7 +62,7 @@ class MerchandisersController extends Controller
 				'email'=> $post['email'],
     			);
 
-    		$i = DB::table('merchandiser')->insert($data);
+    		$i = Merchandisers_model::insert_merchandiser($data);
     		if($i > 0){
     			\ Session::flash('message','Record Have been saved succesfully!');
     			return redirect('merchandiser-view');
@@ -89,11 +83,8 @@ class MerchandisersController extends Controller
     	if($v->fails()){
     		return redirect()->back()->withErrors($v->errors());
     	}else{            
-                $user_favorites = DB::table('merchandiser')
-                    ->where('id', '!=', $post['id'])
-                    ->where('name', '=', $post['name'])
-                    ->first();
-
+                $user_favorites = Merchandisers_model::check_merchandiser_is_exist($post['id'],$post['name']);
+                
             if (!is_null($user_favorites)) {
                return redirect()->back()->withErrors('The Merchandiser name has already been taken.');
             } 
@@ -104,7 +95,7 @@ class MerchandisersController extends Controller
                             'email'=> $post['email'],
     			);
 
-    		$i = DB::table('merchandiser')->where('id',$post['id'])->update($data);
+    		$i = Merchandisers_model::update_merchandiser($post['id'],$data);                       
     		if($i > 0){
     			\ Session::flash('message','Record Have been updated succesfully!');
     			return redirect('merchandiser-view');
@@ -116,7 +107,7 @@ class MerchandisersController extends Controller
 
   public function delete($id){
 
-      $i = DB::table('merchandiser')->where('id',$id)->update(array('trash'=>'1'));
+      $i = Merchandisers_model::delete_merchandiser($id);
     		if($i > 0){
 			\ Session::flash('message','Record Have been Deleted succesfully!');
 			return redirect('merchandiser-view');
