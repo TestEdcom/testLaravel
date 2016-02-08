@@ -8,21 +8,19 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
+use App\Supplier_model;
 
 class SupplierController extends Controller
 {
 
   public function view(){
-        $result = DB::table('suppliers_tbl')
-             ->where('trash', '!=', '1')   
-             ->get();    
+       $result = Supplier_model::get_all_suppliers();     
   	return view('suppliers.view')->with('data',$result);
         
   } 
 
   public function add(){
-      $result = DB::table('suppliers_tbl')
-              ->max('id');
+      $result = Supplier_model::get_supplier_max_id();              
        if(is_null($result)){
            $result='001';
        } else{
@@ -33,10 +31,7 @@ class SupplierController extends Controller
   }
 
    public function edit($id){
-    	$row = DB::table('suppliers_tbl')
-                ->where('id',$id)
-                ->where('trash', '!=', '1')
-                ->first();        
+    	$row = Supplier_model::get_supplier_details_by_id($id);        
     	return view('suppliers.edit')->with('row',$row);
     }
     
@@ -56,8 +51,7 @@ class SupplierController extends Controller
 		return redirect()->back()->withErrors($validation->errors());
 	}else{
             
-            $result = DB::table('suppliers_tbl')
-              ->max('id');
+            $result = Supplier_model::get_supplier_max_id();     
        if(is_null($result)){
            $code='001';
        } else{
@@ -83,7 +77,7 @@ class SupplierController extends Controller
 				'trash'=> '0'
     			);
 
-    		$i = DB::table('suppliers_tbl')->insert($data);
+    		$i =  Supplier_model::insert_supplier($data);
     		if($i > 0){
     			\ Session::flash('message','Record Have been saved succesfully!');
     			return redirect('suppliers-view');
@@ -123,7 +117,7 @@ class SupplierController extends Controller
 				'district'=> $post['district'], 
     			);
 
-    		$i = DB::table('suppliers_tbl')->where('id',$post['id'])->update($data);
+    		$i = Supplier_model::update_supplier($post['id'],$data);
     		if($i > 0){
     			\ Session::flash('message','Record Have been updated succesfully!');
     			return redirect('suppliers-view');
@@ -134,7 +128,7 @@ class SupplierController extends Controller
 
   public function delete($id){
 
-      $i = DB::table('suppliers_tbl')->where('id',$id)->update(array('trash'=>'1'));
+      $i = Supplier_model::delete_supplier($id);
     		if($i > 0){
 			\ Session::flash('message','Record Have been Deleted succesfully!');
 			return redirect('suppliers-view');

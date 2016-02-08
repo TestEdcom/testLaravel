@@ -8,20 +8,19 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
+use App\Channel_model;
 
 class ChannelController extends Controller
 {
 
   public function view(){
-  	$result = DB::table('channel')
-             ->where('trash', '!=', '1')   
-             ->get();    
+  	$result = Channel_model::get_all_channels();    
   	return view('channel.view')->with('data',$result);
   } 
 
   public function add(){
-      $result = DB::table('channel')
-              ->max('id');
+      $result = Channel_model::get_channel_max_id();
+      
        if(is_null($result)){
            $result='00001';
        } else{
@@ -32,10 +31,7 @@ class ChannelController extends Controller
   }
 
    public function edit($id){
-    	$row = DB::table('channel')
-                ->where('id',$id)
-                ->where('trash', '!=', '1')
-                ->first();
+    	$row = Channel_model::get_channel_details_by_id($id);
     	return view('channel.edit')->with('row',$row);
     }
     
@@ -50,8 +46,8 @@ class ChannelController extends Controller
 		return redirect()->back()->withErrors($validation->errors());
 	}else{
             
-            $result = DB::table('channel')
-              ->max('id');
+            $result = Channel_model::get_channel_max_id(); 
+            
        if(is_null($result)){
            $code='00001';
        } else{
@@ -65,7 +61,7 @@ class ChannelController extends Controller
 				'description'=> $post['description'], 
     			);
 
-    		$i = DB::table('channel')->insert($data);
+    		$i = Channel_model::insert_channel($data);
     		if($i > 0){
     			\ Session::flash('message','Record Have been saved succesfully!');
     			return redirect('channel-view');
@@ -84,10 +80,7 @@ class ChannelController extends Controller
     	if($v->fails()){
     		return redirect()->back()->withErrors($v->errors());
     	}else{            
-                $user_favorites = DB::table('channel')
-                    ->where('id', '!=', $post['id'])
-                    ->where('name', '=', $post['name'])
-                    ->first();
+                $user_favorites = Channel_model::check_channel_is_exist($post['id'],$post['name']);
 
             if (!is_null($user_favorites)) {
                return redirect()->back()->withErrors('The channel name has already been taken.');
@@ -98,7 +91,7 @@ class ChannelController extends Controller
                             'description'=> $post['description'], 
     			);
 
-    		$i = DB::table('channel')->where('id',$post['id'])->update($data);
+    		$i = Channel_model::update_channel($post['id'],$data);
     		if($i > 0){
     			\ Session::flash('message','Record Have been updated succesfully!');
     			return redirect('channel-view');
@@ -110,7 +103,7 @@ class ChannelController extends Controller
 
   public function delete($id){
 
-      $i = DB::table('channel')->where('id',$id)->update(array('trash'=>'1'));
+      $i = Channel_model::delete_channel($id);
     		if($i > 0){
 			\ Session::flash('message','Record Have been Deleted succesfully!');
 			return redirect('channel-view');

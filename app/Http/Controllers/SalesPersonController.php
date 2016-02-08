@@ -8,21 +8,20 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
+use App\SalesPerson_model;
 
 class SalesPersonController extends Controller
 {
 
   public function view(){
-  	$result = DB::table('salesperson_tbl')
-             ->where('trash', '!=', '1')   
-             ->get();    
+  	$result = SalesPerson_model::get_all_salesPersons();    
   	return view('salesperson.view')->with('data',$result);
   } 
 
   public function add(){
-      $result = DB::table('salesperson_tbl')
-              ->max('id');
-       if(is_null($result)){
+      $result = SalesPerson_model::get_salesPerson_max_id();
+       
+      if(is_null($result)){
            $result='001';
        } else{
            $result++;
@@ -32,10 +31,7 @@ class SalesPersonController extends Controller
   }
 
    public function edit($id){
-    	$row = DB::table('salesperson_tbl')
-                ->where('id',$id)
-                ->where('trash', '!=', '1')
-                ->first();
+    	$row = SalesPerson_model::get_salesPerson_details_by_id($id);
     	return view('salesperson.edit')->with('row',$row);
     }
     
@@ -53,8 +49,8 @@ class SalesPersonController extends Controller
 		return redirect()->back()->withErrors($validation->errors());
 	}else{
             
-            $result = DB::table('salesperson_tbl')
-              ->max('id');
+            $result = SalesPerson_model::get_salesPerson_max_id();
+            
        if(is_null($result)){
            $code='001';
        } else{
@@ -70,7 +66,7 @@ class SalesPersonController extends Controller
                     'email'=> $post['email'],
                 );
 
-    		$i = DB::table('salesperson_tbl')->insert($data);
+    		$i = SalesPerson_model::insert_salesPerson($data);
     		if($i > 0){
     			\ Session::flash('message','Record Have been saved succesfully!');
     			return redirect('salesperson-view');
@@ -99,7 +95,7 @@ class SalesPersonController extends Controller
                             'email'=> $post['email'],
     			);
 
-    		$i = DB::table('salesperson_tbl')->where('id',$post['id'])->update($data);
+    		$i = SalesPerson_model::update_salesPerson($post['id'], $data);
     		if($i > 0){
     			\ Session::flash('message','Record Have been updated succesfully!');
     			return redirect('salesperson-view');
@@ -111,7 +107,7 @@ class SalesPersonController extends Controller
 
   public function delete($id){
 
-      $i = DB::table('salesperson_tbl')->where('id',$id)->update(array('trash'=>'1'));
+      $i = SalesPerson_model::delete_salesPerson($id);
     		if($i > 0){
 			\ Session::flash('message','Record Have been Deleted succesfully!');
 			return redirect('salesperson-view');
