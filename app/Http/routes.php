@@ -112,3 +112,14 @@ Route::post('/add-area', 'AreaViewController@area_save');
 Route::get('/edit-area/{id}', 'AreaViewController@edit_area_form');
 Route::post('/edit-area', 'AreaViewController@area_update');
 Route::get('/delete-area/{id}', 'AreaViewController@area_delete');
+
+
+// -- Products
+
+// Product Category
+Route::get('/product-category', 'ProductController@category_view'); 
+Route::get('/pcat-add', 'ProductController@pcat_add_form'); 
+Route::post('/pcat-add', 'ProductController@pcat_save'); 
+Route::get('/pcat-edit/{id}', 'ProductController@pcat_edit_form'); 
+Route::post('/pcat-edit', 'ProductController@pcat_update'); 
+Route::get('/pcat-delete/{id}', 'ProductController@delete'); 

@@ -67,68 +67,53 @@
                                             <th>Area Name</th>
                                             <th>Area Code</th>
                                             <th>Area District</th> 
-                                            <th>Area City</th> 
-                                            <th>Area Sales Persons</th> 
+                                            <th>Area City</th>  
                                             <th>Action</th>
 
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="odd gradeX">
-                                            <td>Maharagama South</td>
-                                            <td>AR20001</td>
-                                            <td>Colombo</td> 
-                                            <td>Maharagama / Pannipitiya / Kottawa </td>
-                                            <td>John / Clark </td> 
+                                        <?php
+                                        $areas_all = $data['areas'];
+                                         
+                                        if(isset($areas_all) && $areas_all!=""){ 
+
+                                            foreach($areas_all as $areas){ 
+                                               $area_city_all = array();
+                                                $area_district_all = array();
+
+                                                $area_name = $areas['area']['area_name'];
+                                                $area_code = $areas['area']['area_code'];
+                                                $area_id = $areas['area']['area_id'];
+                                                $area_cities = $areas['cities'];
+
+                                                 foreach($area_cities as $a_ities){
+                                                   
+                                                    if(!in_array($a_ities['city_name'],$area_city_all)){
+                                                        array_push($area_city_all, $a_ities['city_name']);
+                                                    }
+                                                    if(!in_array($a_ities['districts_name'],$area_district_all)){
+                                                        array_push($area_district_all, $a_ities['districts_name']);
+                                                    }
+                                                 }
+  
+                                            ?>
+                                            <tr class="odd gradeX">
+                                            <td><?php echo $area_name; ?></td>
+                                            <td><?php echo $area_code; ?></td>
+                                            <td><?php foreach($area_district_all as $district_all){ echo $district_all.'/'; } ?></td> 
+                                            <td><?php foreach($area_city_all as $city_all){ echo $city_all.'/'; } ?></td> 
                                             <td class="center"> 
-                                            <a href="" class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
-                                            <a href="" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>
+                                            <a href="<?php echo 'edit-area/'.$area_id ; ?>" class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
+                                            <a href="<?php echo 'delete-area/'.$area_id ; ?>" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>
                                             </td>
                                         </tr>
-                                        <tr class="odd gradeX">
-                                            <td>Gampaha North</td>
-                                            <td>AR20023</td>
-                                            <td>Gampaha</td> 
-                                            <td>Gampaha / Ja-Ela / Kadana </td>
-                                            <td>John / Clark </td> 
-                                            <td class="center"> 
-                                            <a href="" class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
-                                            <a href="" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>
-                                            </td>
-                                        </tr>
-                                        <tr class="even gradeC">
-                                           <td>Kaluthra North</td>
-                                            <td>AR20034</td>
-                                            <td>Kaluthra</td> 
-                                            <td>Kaluthra / Mathugama  </td>
-                                            <td>John / Clark </td> 
-                                            <td class="center"> 
-                                            <a href="" class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
-                                            <a href="" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>
-                                            </td>
-                                        </tr>
-                                        <tr class="odd gradeA">
-                                           <td>Galle</td>
-                                            <td>AR20045</td>
-                                            <td>Galle</td> 
-                                            <td>Galle / Koggala </td>
-                                            <td>John / Clark </td> 
-                                            <td class="center"> 
-                                            <a href="" class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
-                                            <a href="" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>
-                                            </td>
-                                        </tr>
-                                        <tr class="even gradeA">
-                                            <td>Matara South</td>
-                                            <td>AR20064</td>
-                                            <td>Matara</td> 
-                                            <td>Matara  </td>
-                                            <td>John / Clark </td> 
-                                            <td class="center"> 
-                                            <a href="" class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
-                                            <a href="" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>
-                                            </td>
-                                        </tr>
+                                            <?php
+
+                                             }
+
+                                             } ?>
+                                         
                                         
                                         </tr>
                                     </tbody>

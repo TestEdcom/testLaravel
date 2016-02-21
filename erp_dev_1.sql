@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2016-02-07 21:41:35
+Date: 2016-02-18 21:47:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,13 +20,21 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `areas_cities_tbl`;
 CREATE TABLE `areas_cities_tbl` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `area_code` varchar(255) DEFAULT NULL,
-  `city_code` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `city_code` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of areas_cities_tbl
 -- ----------------------------
+INSERT INTO `areas_cities_tbl` VALUES ('1', 'AREA001', 'CITY000001');
+INSERT INTO `areas_cities_tbl` VALUES ('2', 'AREA001', 'CITY000002');
+INSERT INTO `areas_cities_tbl` VALUES ('3', 'AREA001', 'CITY000003');
+INSERT INTO `areas_cities_tbl` VALUES ('4', 'AREA001', 'CITY000004');
+INSERT INTO `areas_cities_tbl` VALUES ('5', 'AREA002', 'CITY000006');
+INSERT INTO `areas_cities_tbl` VALUES ('6', 'AREA002', 'CITY000005');
 
 -- ----------------------------
 -- Table structure for `areas_tbl`
@@ -38,11 +46,13 @@ CREATE TABLE `areas_tbl` (
   `area_code` varchar(255) DEFAULT NULL,
   `status` char(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of areas_tbl
 -- ----------------------------
+INSERT INTO `areas_tbl` VALUES ('1', 'AREA 1', 'AREA001', '1');
+INSERT INTO `areas_tbl` VALUES ('2', 'AREA 2', 'AREA002', '1');
 
 -- ----------------------------
 -- Table structure for `channel`
@@ -78,11 +88,27 @@ CREATE TABLE `cities_tbl` (
   `created_at` varchar(20) DEFAULT NULL,
   `updated_at` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of cities_tbl
 -- ----------------------------
+INSERT INTO `cities_tbl` VALUES ('7', 'Kandy', 'CITY000001', 'DISTRICT011', null, null, null);
+INSERT INTO `cities_tbl` VALUES ('8', 'Dambulla', 'CITY000002', 'DISTRICT016', null, null, null);
+INSERT INTO `cities_tbl` VALUES ('9', 'Matale', 'CITY000003', 'DISTRICT016', null, null, null);
+INSERT INTO `cities_tbl` VALUES ('10', 'Nuwara Eliya', 'CITY000004', 'DISTRICT020', null, null, null);
+INSERT INTO `cities_tbl` VALUES ('11', 'Gampola', 'CITY000005', 'DISTRICT011', null, null, null);
+INSERT INTO `cities_tbl` VALUES ('12', 'Hatton', 'CITY000006', 'DISTRICT011', null, null, null);
+INSERT INTO `cities_tbl` VALUES ('13', 'Kalmunai', 'CITY000007', 'DISTRICT001', null, null, null);
+INSERT INTO `cities_tbl` VALUES ('14', 'Trincomalee', 'CITY000008', 'DISTRICT024', null, null, null);
+INSERT INTO `cities_tbl` VALUES ('15', 'Batticaloa', 'CITY000009', 'DISTRICT004', null, null, null);
+INSERT INTO `cities_tbl` VALUES ('16', 'Colombo', 'CITY000010', 'DISTRICT005', null, null, null);
+INSERT INTO `cities_tbl` VALUES ('17', 'Dehiwala-Mount Lavinia', 'CITY000011', 'DISTRICT005', null, null, null);
+INSERT INTO `cities_tbl` VALUES ('18', 'Moratuwa', 'CITY000012', 'DISTRICT005', null, null, null);
+INSERT INTO `cities_tbl` VALUES ('19', 'Negombo', 'CITY000013', 'DISTRICT007', null, null, null);
+INSERT INTO `cities_tbl` VALUES ('20', 'Sri Jayawardenepura Kotte', 'CITY000014', 'DISTRICT005', null, null, null);
+INSERT INTO `cities_tbl` VALUES ('21', 'Gampaha', 'CITY000015', 'DISTRICT007', null, null, null);
+INSERT INTO `cities_tbl` VALUES ('22', 'Kalutara', 'CITY000016', 'DISTRICT010', null, null, null);
 
 -- ----------------------------
 -- Table structure for `district_tbl`

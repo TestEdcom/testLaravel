@@ -190,7 +190,7 @@
                                     <a href="product-add.html">Add Products</a>
                                 </li>
                                 <li>
-                                    <a href="product-category.html">Product Categories</a>
+                                    <a href="/product-category">Product Categories</a>
                                 </li>
                                  <li>
                                     <a href="product-sizes.html">Product Sizes</a>
@@ -326,7 +326,7 @@
 
     <script src="{{asset('assets/dist/js/jquery.fancybox.pack.js') }} "></script>
     <!-- Custom Theme JavaScript -->
-    <script src="{{asset('assets/dist/js/sb-admin-2.js') }} "></script>
+    <script src="{{asset('assets/dist/js/sb-admin-2.js') }} "></script> 
 
 
     <script>
