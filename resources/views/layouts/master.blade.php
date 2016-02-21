@@ -187,13 +187,13 @@
                             <a href="tables.html"><i class="fa fa-apple"></i> Products<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                <li>
-                                    <a href="product-add.html">Add Products</a>
+                                    <a href="/products-add">Add Products</a>
                                 </li>
                                 <li>
                                     <a href="/product-category">Product Categories</a>
                                 </li>
                                  <li>
-                                    <a href="product-sizes.html">Product Sizes</a>
+                                    <a href="/product-sizes">Product Sizes</a>
                                 </li>
                                  <li>
                                     <a href="product-prices.html">Product Prices</a>

@@ -8,7 +8,7 @@
       <div id="page-wrapper">
             <div class="row clr_row sub_menu_bar">
                 <div class="col-lg-12">
-                        <a href="/product-category" class="btn btn-purple">Back To Product Category</a>
+                        <a href="/product-sizes" class="btn btn-purple">Back To Product Sizes</a>
                 </div>
         </div>
             <div class="container-fluid">
@@ -37,22 +37,22 @@
                 <div class="col-lg-12"> 
                           
                             <div class="row">
-                                <form role="form" action="{{action('ProductController@pcat_update')}}" method="post">
+                                <form role="form" action="{{action('ProductController@psize_update')}}" method="post">
                                  <input type="hidden" name="_token" value="<?= csrf_token() ?>">
                                  <input type="hidden" name="id" value="<?php echo $row->id; ?>"> 
-                                 <input type="hidden" name="p_cat_code" value="<?php echo $row->p_cat_code; ?>">
+                                 <input type="hidden" name="p_size_code" value="<?php echo $row->p_size_code; ?>">
                                 <div class="col-lg-6">        
                                         <div class="form-group">
-                                            <label>Category Name</label>
-                                            <input class="form-control" name="p_cat_name" value="<?php echo $row->p_cat_name; ?>" placeholder="Category Name">
+                                            <label>Size Name</label>
+                                            <input class="form-control" name="p_size_name" value="<?php echo $row->p_size_name; ?>" placeholder="Size Name">
                                         </div>
                                         <div class="form-group">
-                                            <label>Category Code</label>
-                                            <input class="form-control" name="p_cat_code" disabled="disabled"  value="<?php echo $row->p_cat_code; ?>"> 
+                                            <label>Size Code</label>
+                                            <input class="form-control" name="p_size_code" disabled="disabled"  value="<?php echo $row->p_size_code; ?>"> 
                                         </div>
                                          <div class="form-group">
-                                            <label>Category Description</label>
-                                            <textarea class="form-control" name="p_cat_description" placeholder="Category Description"><?php echo $row->p_cat_description; ?></textarea>
+                                            <label>Size Description</label>
+                                            <textarea class="form-control" name="p_size_description" placeholder="Size Description"><?php echo $row->p_size_description; ?></textarea>
                                         </div> 
                                         <div class="form-group">
                                             <label>Status</label>

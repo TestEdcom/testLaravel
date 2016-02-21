@@ -122,4 +122,17 @@ Route::get('/pcat-add', 'ProductController@pcat_add_form');
 Route::post('/pcat-add', 'ProductController@pcat_save'); 
 Route::get('/pcat-edit/{id}', 'ProductController@pcat_edit_form'); 
 Route::post('/pcat-edit', 'ProductController@pcat_update'); 
-Route::get('/pcat-delete/{id}', 'ProductController@delete'); 
+Route::get('/pcat-delete/{id}', 'ProductController@pcat_delete'); 
+
+// Product Sizes
+Route::get('/product-sizes', 'ProductController@product_sizes_view'); 
+Route::get('/psize-add/', 'ProductController@psize_add_form'); 
+Route::post('/psize-add/', 'ProductController@psize_save'); 
+Route::get('/psize-edit/{id}', 'ProductController@psize_edit_form'); 
+Route::post('/psize-edit', 'ProductController@psize_update'); 
+Route::get('/psize-delete/{id}', 'ProductController@psize_delete'); 
+
+// Product
+
+Route::get('/products-add', 'ProductController@add_products'); 
+Route::post('/products-add', 'ProductController@save_products'); 

@@ -70,10 +70,10 @@
                                          <?php 
                                         if(isset($data) && $data!=""){
                                             foreach($data as $row){  
-                                               $p_cat_id = $row->id;
-                                               $p_cat_name = $row->p_cat_name;
-                                               $p_cat_code = $row->p_cat_code;
-                                               $p_cat_description = $row->p_cat_description;
+                                               $p_size_id = $row->id;
+                                               $p_size_name = $row->p_size_name;
+                                               $p_size_code = $row->p_size_code;
+                                               $p_size_description = $row->p_size_description;
                                                $status = $row->status;
 
                                                 
@@ -82,13 +82,13 @@
 
                                              ?>
                                             <tr class="odd gradeX">
-                                                <td><?php echo $p_cat_name; ?>  </td>
-                                                <td><?php echo $p_cat_code; ?></td> 
-                                                <td><?php echo $p_cat_description; ?> </td> 
+                                                <td><?php echo $p_size_name; ?>  </td>
+                                                <td><?php echo $p_size_code; ?></td> 
+                                                <td><?php echo $p_size_description; ?> </td> 
                                                 <td><?php echo $status; ?></td> 
                                                 <td class="center"> 
-                                                    <a href="/pcat-edit/<?php echo $p_cat_id;?> " class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
-                                                    <a href="/pcat-delete/<?php echo $p_cat_id;?>" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>
+                                                    <a href="/psize-edit/<?php echo $p_size_id;?> " class="btn btn-primary btn-xs"> <span class="fa fa-pencil" ></span></a>
+                                                    <a href="/psize-delete/<?php echo $p_size_id;?>" class="btn btn-danger btn-xs">  <span class="fa fa-times " ></span> </a>
                                                 </td>
                                             </tr>
                                         <?php } 
