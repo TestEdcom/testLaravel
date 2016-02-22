@@ -120,6 +120,15 @@ class Products_model extends Model {
        $_return=DB::table('products_master_tbl')->insertGetId($data);
        return $_return;
   }
+  public static function get_all_products(){
+       $_return=DB::table('products_master_tbl')->orderBy('id','desc')->get();;
+       return $_return;
+  }
+  public static function update_products($id,$data_array){
+     
+      $_result=DB::table('products_master_tbl')->where('id',$id)->update($data_array);
+      return $_result;
+  } 
    
   
 }

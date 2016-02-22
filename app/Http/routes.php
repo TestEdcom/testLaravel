@@ -136,3 +136,4 @@ Route::get('/psize-delete/{id}', 'ProductController@psize_delete');
 
 Route::get('/products-add', 'ProductController@add_products'); 
 Route::post('/products-add', 'ProductController@save_products'); 
+Route::get('/product-view', 'ProductController@products_view'); 

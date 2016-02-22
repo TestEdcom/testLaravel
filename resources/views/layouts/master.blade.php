@@ -199,7 +199,7 @@
                                     <a href="product-prices.html">Product Prices</a>
                                 </li>
                                 <li>
-                                    <a href="product-view.html">View Products</a>
+                                    <a href="/product-view">View Products</a>
                                 </li>
                                  
                             </ul>

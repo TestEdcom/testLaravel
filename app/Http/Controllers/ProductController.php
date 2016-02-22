@@ -196,7 +196,7 @@ class ProductController extends Controller
     public function add_products(){
       $next_product_code = Products_model::get_next_product_code();
       $all_merchandizer = Products_model::get_all_merchandizer();
-      return view('products.add-products')->with('next_product_code',$next_product_code)->with('all_merchandizer',$all_merchandizer);
+      return view('products.products-add')->with('next_product_code',$next_product_code)->with('all_merchandizer',$all_merchandizer);
     }
 
     public function save_products(Request $request){
@@ -225,9 +225,44 @@ class ProductController extends Controller
 
             if($i > 0){ 
               \Session::flash('message','Record Have been saved succesfully!');
-              return redirect('product-sizes');
+              return redirect('product-view');
             }
           }
     }
+
+    public function products_view(){  
+   //var_dump(Session::get('userEmail'));    
+    $result = Products_model::get_all_products(); 
+    return view('products.products-view')->with('data',$result);
+  } 
     
+    public function products_update(Request $request)
+    {
+      $post = $request->all(); 
+      $v = \Validator::make($request->all() , 
+        [
+         'product_name' => 'required' , 
+          'product_merchandizer' => 'required',
+        ]); 
+      if($v->fails()){
+        return redirect()->back()->withErrors($v->errors());
+      }
+      else{
+        $data = array (
+          'product_name'=> $post['product_name'],  
+          'product_code'=> $post['product_code'],
+          'product_description'=> $post['product_description'],
+          'product_supplier'=> $post['product_supplier'],
+          'product_merchandizer'=> $post['product_merchandizer'],
+          'status'=> $post['status'],
+          'updated_at'=> strtotime(date('Y-m-d H:i:s'))
+          );
+
+        $i = Products_model::update_products($post['id'], $data);  
+        if($i > 0){ 
+          \Session::flash('message','Record Have been updated  succesfully!');
+          return redirect('product-sizes');
+        }
+      }
+    }
 }
